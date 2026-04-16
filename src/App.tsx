@@ -137,13 +137,13 @@ const education: string[] = [
 
 const contact = {
   name: "Mark Warunge",
-  title: "Head of Business Development & Growth",
+  title: "Business Development & Growth Expert",
   subtitle:
     "Fintech commercial leader building revenue engines across Africa through enterprise sales, FX partnerships, payments strategy, and market expansion.",
   location: "Nairobi, Kenya",
   phone: "+254 713 722 822",
   email: "mmwarunge@gmail.com",
-  linkedin: "https://linkedin.com/in/mark-warunge",
+  linkedin: "https://www.linkedin.com/in/mark-m%C3%BAr%C3%ADu-warunge-95bb406a/",
 };
 
 function SectionTitle({ eyebrow, title, description }: SectionTitleProps) {
@@ -232,11 +232,11 @@ export default function MarkWarungePortfolio() {
 
           <div className="hidden md:block">
             <Button
-              asChild
-              className="rounded-2xl bg-[#2F80ED] px-5 text-white hover:bg-[#256fd1]"
-            >
-              <a href={`mailto:${contact.email}`}>Let&apos;s Talk</a>
-            </Button>
+  asChild
+  className="rounded-2xl bg-[#2F80ED] px-5 text-white hover:bg-[#256fd1]"
+>
+  <a href="#contact">Let&apos;s Talk</a>
+</Button>
           </div>
 
           <button
@@ -311,7 +311,7 @@ export default function MarkWarungePortfolio() {
                   className="rounded-2xl border-white/15 bg-white/5 px-7 text-white hover:bg-white/10"
                 >
                   <a href={contact.linkedin} target="_blank" rel="noreferrer">
-                    View LinkedIn <ArrowUpRight className="ml-2 h-4 w-4" />
+                    Connect on LinkedIn <ArrowUpRight className="ml-2 h-4 w-4" />
                   </a>
                 </Button>
               </div>
@@ -629,43 +629,52 @@ export default function MarkWarungePortfolio() {
                 </p>
 
                 <div className="mt-8 grid gap-4 md:grid-cols-2">
-                  {[
-                    {
-                      href: `mailto:${contact.email}`,
-                      icon: Mail,
-                      label: "Email",
-                      value: contact.email,
-                    },
-                    {
-                      href: `tel:${contact.phone.replace(/\s+/g, "")}`,
-                      icon: Phone,
-                      label: "Phone",
-                      value: contact.phone,
-                    },
-                    {
-                      href: contact.linkedin,
-                      icon: ExternalLink,
-                      label: "LinkedIn",
-                      value: "linkedin.com/in/mark-warunge",
-                    },
-                  ].map((item) => {
-                    const Icon = item.icon;
-                    return (
-                      <a
-                        key={item.label}
-                        href={item.href}
-                        target={item.label === "LinkedIn" ? "_blank" : undefined}
-                        rel={item.label === "LinkedIn" ? "noreferrer" : undefined}
-                        className="rounded-2xl border border-white/10 bg-[#1E1E1E]/45 p-5 transition hover:bg-[#1E1E1E]/60"
-                      >
-                        <div className="flex items-center gap-3 text-[#2F80ED]">
-                          <Icon className="h-4 w-4" /> {item.label}
-                        </div>
-                        <div className="mt-3 text-sm text-[#EAEAEA]">{item.value}</div>
-                      </a>
-                    );
-                  })}
+                  {
+  [
+    {
+      href: `mailto:${contact.email}`,
+      icon: Mail,
+      label: "Email",
+      value: contact.email,
+    },
+    {
+      href: `tel:${contact.phone.replace(/\s+/g, "")}`,
+      icon: Phone,
+      label: "Phone",
+      value: contact.phone,
+    },
+    {
+      href: contact.linkedin,
+      icon: ExternalLink,
+      label: "LinkedIn",
+      value: "Connect on LinkedIn",
+    },
+  ].map((item) => {
+    const Icon = item.icon;
+    return (
+      <a
+        key={item.label}
+        href={item.href}
+        target={item.label === "LinkedIn" ? "_blank" : undefined}
+        rel={item.label === "LinkedIn" ? "noreferrer" : undefined}
+        className="group rounded-2xl border border-white/10 bg-[#1E1E1E]/45 p-5 transition hover:bg-[#1E1E1E]/60"
+      >
+        <div className="flex items-center gap-3 text-[#2F80ED]">
+          <Icon className="h-4 w-4" />
+          {item.label}
+        </div>
 
+        <div className="mt-3 flex items-center gap-2 text-sm text-[#EAEAEA] group-hover:text-white transition">
+          {item.value}
+
+          {item.label === "LinkedIn" && (
+            <ArrowUpRight className="h-4 w-4 opacity-70 group-hover:opacity-100" />
+          )}
+        </div>
+      </a>
+    );
+  })
+}
                   <div className="rounded-2xl border border-white/10 bg-[#1E1E1E]/45 p-5">
                     <div className="flex items-center gap-3 text-[#2F80ED]">
                       <MapPin className="h-4 w-4" /> Location
@@ -673,29 +682,6 @@ export default function MarkWarungePortfolio() {
                     <div className="mt-3 text-sm text-[#EAEAEA]">{contact.location}</div>
                   </div>
                 </div>
-              </div>
-
-              <div className="flex flex-col gap-4 lg:items-end">
-                <Button
-                  asChild
-                  size="lg"
-                  className="rounded-2xl bg-[#2F80ED] px-6 text-white hover:bg-[#256fd1]"
-                >
-                  <a href={`mailto:${contact.email}?subject=Opportunity%20for%20Mark%20Warunge`}>
-                    Email Mark
-                  </a>
-                </Button>
-
-                <Button
-                  asChild
-                  size="lg"
-                  variant="outline"
-                  className="rounded-2xl border-white/15 bg-white/5 px-6 text-white hover:bg-white/10"
-                >
-                  <a href={contact.linkedin} target="_blank" rel="noreferrer">
-                    Connect on LinkedIn
-                  </a>
-                </Button>
               </div>
             </div>
           </motion.div>
